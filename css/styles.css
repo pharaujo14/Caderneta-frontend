@@ -1,0 +1,35 @@
+.formTurma {
+    margin: 10px;
+    width: 250px;    
+}
+
+#btn-form-turma {
+    margin: 10px;
+}
+
+#titulo-form-turma{
+    margin: 10px;
+    color: red;
+}
+
+.menu {
+    height: 100px;
+    width: 100px;
+}
+
+.logo {
+    width: 150px;
+}
+
+.nav-pills{
+    position: absolute;
+}
+
+.conteudo {
+    margin-left: 200px;
+}
+
+header {
+    border: 5px solid white;
+
+}
