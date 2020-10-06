@@ -1,4 +1,5 @@
 $(document).ready(function () {
+  $("#cpf").mask("999.999.999-99");
   $("#formCadastro").submit(function (event) {
     event.preventDefault();
 
@@ -25,6 +26,6 @@ function enviar() {
     dataType: "json",
     cache: false,
     timeout: 600000,
-    success: alert("Cadastro realizado com sucesso"),
+    sucess: alert("Cadastro realizado com sucesso")
   });
 }
