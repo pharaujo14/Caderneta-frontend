@@ -3,8 +3,8 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cadastro</title>
+  <meta name="viewport" content="width, initial-scale=1.0" />
+  <title>Cardeneta</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
   <link rel="stylesheet" href="./css/styles.css" />
@@ -20,82 +20,98 @@
 </head>
 
 <body>
-  <!-- Header -->
-  <header>
-    <div class="navContainerEdit mt-0">
-      <nav class="navbar navbar-expand-lg">
-        <a class="navbar-brand h1 mb-0" href="index.html"><img src="./assets/logo.svg" alt="Logo" class="logo" /></a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+  <div class="container">
+
+    <header>
+
+      <nav class="navbar navbar-expand-lg navbar-light bg">
+        <a class="navbar-brand" href="index.html">
+          <img src="./assets/icon.svg" class="icone" alt="Icone">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
-        <form class="form-inline ml-auto">
-          <input class="form-control" type="search" placeholder="Pesquisar" />
-        </form>
+
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="sobre.html">Sobre<span class="sr-only"></span></a>
+            </li>
+            <li class="nav-item active">
+              <a class="nav-link" href="contato.html">Contato<span class="sr-only"></span></a>
+            </li>
+
+          </ul>
+
+
+          <a class="btn btn-outline-danger" href="login.html" role="button">Login</a>
+
+        </div>
       </nav>
-    </div>
-  </header>
-  <!--Menu de navegação-->
-  <nav class="nav nav-pills flex-column">
-    <a class="nav-link" href="#"><img src="./assets/dashboard-text.svg" alt="arquivos" class="menu" /></a>
-    <a class="nav-link" href="#"><img src="./assets/turmas-text.svg" alt="arquivos" class="menu" /></a>
-    <a class="nav-link" href="#"><img src="./assets/arquivos-text.svg" alt="arquivos" class="menu" /></a>
-    <a class="nav-link" href="#"><img src="./assets/chamadas-text.svg" alt="arquivos" class="menu" /></a>
-    <a class="nav-link" href="#"><img src="./assets/notas-text.svg" alt="arquivos" class="menu" /></a>
-    <a class="nav-link" href="#">Aqui vai a foto</a>
-  </nav>
-  <section class="conteudo">
-    <h1>Cadastre-se na Caderneta</h1>
-    <br />
-    <form id="formCadastro" method="POST">
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="nome">Nome:</label>
-          <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required />
-        </div>
-        <div class="form-group col-md-4">
-          <label for="sobrenome">Sobrenome:</label>
-          <input type="text" class="form-control" id="sobrenome" placeholder="Digite seu sobrenome" required />
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="email">E-mail:</label>
-          <input type="email" class="form-control" id="email" placeholder="Digite seu email" required />
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="cpf">CPF:</label>
-          <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF" required />
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="foto">Foto:</label>
-          <input type="text" class="form-control" id="foto" placeholder="Mande sua foto" />
-        </div>
-      </div>
+
+    </header>
+
+    <section class="conteudo">
+      <h1>Cadastre-se na Caderneta</h1>
       <br />
-      <br />
-      <div class="form-row">
-        <div class="form-group col-md-4">
-          <label for="senha">Senha:</label>
-          <input type="password" class="form-control" id="senha" placeholder="Digite a sua senha" required />
+      <form id="formCadastro" method="POST">
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="name">Nome:</label>
+            <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required />
+          </div>
         </div>
-      </div>
-      <button type="reset" class="btn btn-outline-danger">Limpar</button>
-      <button type="submit" class="btn btn-outline-danger" id="enviar">
-        Cadastrar
-      </button>
-      <br /><br />
-    </form>
-  </section>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery-1.2.6.pack.js"></script>
-  <script type="text/javascript" src="js/jquery.maskedinput-1.1.4.pack.js" />
-  </script>
-  <script src="./js/validaForm.js"></script>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="lastname">Sobrenome:</label>
+            <input type="text" class="form-control" id="sobrenome" placeholder="Digite seu sobrenome" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="mail">E-mail:</label>
+            <input type="email" class="form-control" id="email" placeholder="Digite seu email" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="cpf">CPF:</label>
+            <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="foto">Foto:</label>
+            <input type="text" class="form-control" id="foto" placeholder="Mande sua foto" />
+          </div>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="city">Senha:</label>
+            <input type="password" class="form-control" id="senha" placeholder="Digite a sua senha" required />
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group col-md-4">
+            <label for="city">Confirme sua senha:</label>
+            <input type="password" class="form-control" id="senha" placeholder="Digite a sua senha novamente" required />
+          </div>
+        </div>
+        <button type="reset" class="btn btn-outline-danger">Limpar</button>
+        <button type="submit" class="btn btn-outline-danger" id="enviar">
+          Cadastrar
+        </button>
+        <br /><br />
+      </form>
+    </section>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="./js/validaForm.js"></script>
+
+
+
+  </div>
 </body>
 
 </html>
