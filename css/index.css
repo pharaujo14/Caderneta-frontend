@@ -1,0 +1,41 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icone {
+    width: 100px;
+}
+
+.logo-container {
+    text-align: center;
+    margin-top: 15%;
+    color: gray;
+  }
+
+.botao-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.botao-container a {
+    margin: 50px;
+}
+
+
+.vantagens-container {
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    width: 400px;
+    height: 50px;
+    border-radius: 3px;
+    margin: 50px;
+    background-color: gainsboro;
+    color: red;
+    text-align: center;
+}

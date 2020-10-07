@@ -4,10 +4,10 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width, initial-scale=1.0" />
-    <title>Cardeneta</title>
+    <title>Login</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="./css/login.css" />
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
         crossorigin="anonymous"></script>
@@ -54,37 +54,49 @@
 
         </header>
 
-        <section class="conteudo">
-            <h1>Faça login na Cardeneta</h1>
-            <br />
-            <form id="formLogin" method="POST">
-                
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="mail">E-mail:</label>
-                        <input type="email" class="form-control" id="email" placeholder="Digite seu email" required />
-                    </div>
-                </div>
-                
+        <div class="forms-container">
 
-                <div class="form-row">
-                    <div class="form-group col-md-4">
-                        <label for="city">Senha:</label>
+            <div class="cabecalho">
+                <h3>Faça login na Cardeneta</h3>
+            </div>
+
+
+            <div class="formulario">
+                <form id="formLogin" method="POST">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Email:</label>
+                        <input type="email" class="form-control" id="email" placeholder="Digite seu email" required>
+
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Senha:</label>
                         <input type="password" class="form-control" id="senha" placeholder="Digite a sua senha"
-                            required />
+                            required>
                     </div>
-                </div>
-                
-                <button type="submit" class="btn btn-outline-danger">Entrar</button>
-                <button type="submit" class="btn btn-outline-danger">Recuperar Senha</button>
-                <a class="btn btn-outline-danger" href="cadastro.html" role="button">Cadastro</a>
-                
-            </form>
-        </section>
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-        <script src="./js/validaForm.js"></script>
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                        <label class="form-check-label" for="exampleCheck1">Check me out</label>
+                    </div>
+                    <button type="submit" class="btn btn-outline-danger">Entrar</button>
+                    <button type="submit" class="btn btn-outline-danger">Recuperar Senha</button>
+                </form>
+            </div>
 
-    </div>
+            <div class="cadastro">
+                <a class="btn btn-outline-danger" href="cadastro.html" role="button">Cadastro</a>
+            </div>
+
+
+
+
+
+
+
+
+
+
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+            <script src="./js/validaForm.js"></script>
 
 </body>
 

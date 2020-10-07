@@ -1,0 +1,24 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icone {
+    width: 100px;
+}
+
+.forms-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    
+    margin: 50px;
+    text-align: center;
+     
+ }
+ 
+ button {
+     margin: 20px;
+ }
