@@ -1,0 +1,27 @@
+nav a{
+    display: block;
+    
+}
+
+.logo {
+    width: 150px;
+}
+
+.menu {
+    width: 100%;
+    max-width: 150px;
+    
+}
+
+#sidebarMenu{
+    width: 100%;
+    max-width: 150px;
+}
+
+.menu:hover{
+    border-right: red solid;
+}
+
+main {
+    height: 100vh;
+}

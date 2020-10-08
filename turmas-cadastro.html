@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width, initial-scale=1.0" />
+    <title>Dashboard - Cardeneta</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+    <link rel="stylesheet" href="./css/dashboard.css" />
+    <link rel="stylesheet" href="./css/turmas.css" />
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+        crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <nav class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
+        <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="dashboard.html"><img src="./assets/logo.svg"
+                alt="Logo" class="logo"></a>
+        <button class="navbar-toggler  d-md-none collapsed" type="button" data-toggle="collapse"
+            data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <ul class="navbar-nav px-3">
+            <li class="nav-item text-nowrap">
+                <a class="btn btn-outline-danger" href="index.html" role="button">Sair</a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <nav id="sidebarMenu" class="col-md-2 col-lg-2 d-md-block bg-light sidebar collapse">
+                <div class="sidebar-sticky pt-3">
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html"><img src="./assets/dashboard-text.svg"
+                                    alt="arquivos" class="menu" /></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="turmas.html"><img src="./assets/turmas-text.svg" alt="arquivos"
+                                    class="menu" /></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="arquivos.html"><img src="./assets/arquivos-text.svg"
+                                    alt="arquivos" class="menu" /></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="chamadas.html"><img src="./assets/chamadas-text.svg"
+                                    alt="arquivos" class="menu" /></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="notas.html"><img src="./assets/notas-text.svg" alt="arquivos"
+                                    class="menu" /></a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+
+            <main role="main" class="col-md-10  col-lg-10 px-md-4">
+
+                <div class="row">
+                    <div class="col-md-6  col-lg-6">
+                        <form>
+                            <h2 id="titulo-form-turma">Dados da Turma</h2>
+                            <div class="form-group">
+                                <input type="text" class="formTurma" id="nomeTurma" placeholder="Nome da Turma" />
+                            </div>
+                            <div class="formCadastroTurma">
+                                <input type="text" class="formTurma" id="diasAula" placeholder="Dias de aula" />
+                            </div>
+                            <div class="formCadastroTurma">
+                                <input type="text" class="formTurma" id="horarioAula"
+                                    placeholder="Horário de aula (00:00 até 00:00):" />
+                            </div>
+                            <div class="formCadastroTurma">
+                                <input type="text" class="formTurma" id="localAula" placeholder="Local de aula" />
+                            </div>
+                            <div class="formCadastroTurma">
+                                <input type="text" class="formTurma" id="inicioAulas" placeholder="Início das aulas" />
+                            </div>
+                            <div class="formCadastroTurma">
+                                <input type="text" class="formTurma" id="encerramentoAulas"
+                                    placeholder="Encerramento das aulas" />
+                            </div>
+                            <button type="button" class="btn btn-outline-danger" id="btn-form-turma">
+                                Enviar
+                            </button>
+                            <button type="button" class="btn btn-outline-danger" id="btn-encerrarTurma">
+                                Encerrar turma
+                            </button>
+                        </form>
+
+                        
+                    </div>
+
+                    <div class="col-md-6  col-lg-6">
+                        <form>
+                            <h2 id="titulo-form-turma">Alunos da Turma</h2>
+                            <button type="button" class="btn btn-outline-danger" id="btn-addAlunosTurma">
+                                Adicionar alunos
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+</body>
+
+</html>

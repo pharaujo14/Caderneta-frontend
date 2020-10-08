@@ -1,0 +1,22 @@
+.formTurma {
+    margin: 10px;
+    width: 250px;    
+}
+
+#btn-form-turma {
+    margin: 10px;
+}
+
+#titulo-form-turma{
+    margin: 10px;
+    color: red;
+}
+
+
+main div {
+    
+
+    justify-content: center;
+    align-items: center;
+}
+
