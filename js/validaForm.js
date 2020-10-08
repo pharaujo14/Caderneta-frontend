@@ -12,7 +12,7 @@ function enviar() {
   insert["nome"] = $("#nome").val();
   insert["sobrenome"] = $("#sobrenome").val();
   insert["email"] = $("#email").val();
-  insert["cpf"] = $("#cpf").val().replace(/[^\d]+/g,'');
+  insert["cpf"] = $("#cpf").val();
   insert["foto"] = $("#foto").val();
   insert["senha"] = $("#senha").val();
 
