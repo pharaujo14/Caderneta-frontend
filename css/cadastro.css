@@ -4,6 +4,13 @@ body {
     justify-content: center;
 }
 
+input{
+    padding: 10px;
+    width: 350px;
+    color: #000;
+    font-family: "FontAwesome", Open Sans, Arial;
+  }
+
 .icone {
     width: 100px;
 }
@@ -22,3 +29,20 @@ body {
  button {
      margin: 20px;
  }
+
+ .span-olho {
+    position:absolute;
+    top:8px; right:5px;
+    z-index:10;
+    border:none;
+    background:transparent;
+    outline:none;
+  }
+  
+  .submit-line {
+    position: relative;
+  }
+  
+  .submit-line input {
+    width: 100%;
+  }

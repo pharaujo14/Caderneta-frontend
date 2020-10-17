@@ -7,6 +7,9 @@
   <title>Cadastro</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
     integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css"
+    integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous" />
+
   <link rel="stylesheet" href="./css/cadastro.css" />
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
     integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -24,7 +27,7 @@
     <header>
       <nav class="navbar navbar-expand-lg navbar-light bg">
         <a class="navbar-brand" href="index.html">
-          <img src="./assets/icon.svg" class="icone" alt="Icone">
+          <img src="./assets/icon.svg" class="icone" alt="Icone" />
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
           aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -66,34 +69,48 @@
             <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF" required />
           </div>
           <div class="form-group">
-            <label for="foto">Foto:</label>
-            <input type="text" class="form-control" id="foto" placeholder="Mande sua foto" />
+            <label for="senha">Senha:</label>
+            <div class="submit-line">
+              <input type="password" class="form-control" id="senha" placeholder="Digite a sua senha" required />
+              <span class="span-olho">
+                <i id="senhaOlho" class="fa fa-eye"></i>
+              </span>
+            </div>
           </div>
-          <div class="form-group">
-            <label for="city">Senha:</label>
-            <input type="password" class="form-control" id="senha" placeholder="Digite a sua senha" required />
-          </div>
-
-          <div class="form-group">
-            <label for="city">Confirme sua senha:</label>
-            <input type="password" class="form-control" id="confirmasenha" placeholder="Digite a sua senha novamente"
-              required />
-          </div>
-
-          <button type="reset" class="btn btn-outline-danger">Limpar</button>
-          <button type="submit" class="btn btn-outline-danger" id="enviar">
-            Cadastrar
-          </button>
-        </form>
       </div>
-    </div>
 
+      <div class="form-group">
+        <label for="confirmasenha">Confirme sua senha:</label>
+        <div class="submit-line">
+          <input type="password" class="form-control" id="confirmasenha" placeholder="Confirme a senha" required />
+          <span class="span-olho">
+            <i id="confirmaSenhaOlho" class="fa fa-eye"></i>
+          </span>
+        </div>
+      </div>
+
+
+      <div class="alert alert-danger" id="validaSenha" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        Os campos de senha devem ser iguais
+      </div>
+
+      <div class="form-group">
+        <button type="reset" class="btn btn-outline-danger">Limpar</button>
+        <button type="submit" class="btn btn-outline-danger" id="enviar">
+          Cadastrar
+        </button>
+      </div>
+      </form>
+    </div>
+  </div>
   </div>
 
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
-
+  <script type="text/javascript"
+    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
   <script src="./js/validaForm.js"></script>
 </body>
