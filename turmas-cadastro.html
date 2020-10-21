@@ -3,13 +3,12 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Dashboard - Cardeneta</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/dashboard.css" />
     <link rel="stylesheet" href="./css/turmas.css" />
-
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
         integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
@@ -25,8 +24,8 @@
 <body>
     <nav class="navbar navbar-light sticky-top bg-light flex-md-nowrap p-0 shadow">
         <a class="navbar-brand col-md-3 col-lg-2 mr-0 px-3" href="dashboard.html"><img src="./assets/logo.svg"
-                alt="Logo" class="logo"></a>
-        <button class="navbar-toggler  d-md-none collapsed" type="button" data-toggle="collapse"
+                alt="Logo" class="logo" /></a>
+        <button class="navbar-toggler d-md-none collapsed" type="button" data-toggle="collapse"
             data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -67,41 +66,55 @@
                 </div>
             </nav>
 
-            <main role="main" class="col-md-10  col-lg-10 px-md-4">
-
+            <main role="main" class="col-md-10 col-lg-10 px-md-4">
                 <div class="row">
-                    <div class="col-md-6  col-lg-6">
+                    <div class="col-md-6 col-lg-6">
                         <form id="formCadastroTurma" method="POST">
                             <h2 id="titulo-form-turma">Dados da Turma</h2>
                             <div class="form-group">
+                                <label for="nomeTurma">Nome da Turma: </label>
+                                <br>
                                 <input type="text" class="formTurma" id="nomeTurma" placeholder="Nome da Turma" />
                             </div>
                             <div class="formCadastroTurma">
-                                <label for="diasAulas">Dias das aulas</label>
-                                <select id="diasAulas">
-                                    <option value="Seg-Sext">Seg-Sext</option> 
+                                <label for="diasAulas">Dias das aulas: </label>
+                                <select class="form-control" id="diasAulas">
+                                    <option value="Seg-Sext">Seg-Sext</option>
                                     <option value="Seg-Quar-Sext">Seg-Quar-Sext</option>
                                     <option value="Ter-Quin">Ter-Quin</option>
                                     <option value="Sab">Sab</option>
                                     <option value="Dom">Dom</option>
-                                  </select>
+                                </select>
+                            </div>
+
+                            <div class="formCadastroTurma">
+                                <label for="horaInicio">Horário de início da aula:</label>
+                                <br>
+
+                                <input type="time" id="horaInicio" class="formTurma" required />
                             </div>
                             <div class="formCadastroTurma">
-                                <input type="datetime" class="formTurma" id="horarioAula"
-                                    placeholder="Horário de aula (00:00 até 00:00):" />
+                                <label for="horaEncerramento">Horário de término da aula:</label>
+                                <br>
+
+                                <input type="time" id="horaEncerramento" class="formTurma" required />
                             </div>
                             <div class="formCadastroTurma">
-                                <label for="local">Local das aulas</label>
-                                <select id="local">
-                                    <option value="Remoto">Remoto</option> 
+                                <label for="local">Local das aulas: </label>
+                                <select class="form-control" id="local">
+                                    <option value="Remoto">Remoto</option>
                                     <option value="Presencial">Presencial</option>
-                                  </select>
+                                </select>
                             </div>
                             <div class="formCadastroTurma">
+                                <label for="inicioAulas">Data de início: </label>
+                                <br />
                                 <input type="date" class="formTurma" id="inicioAulas" placeholder="Início das aulas" />
                             </div>
-                            
+
                             <div class="formCadastroTurma">
+                                <label for="encerramentoAulas">Data de encerramento: </label>
+                                <br />
                                 <input type="date" class="formTurma" id="encerramentoAulas"
                                     placeholder="Encerramento das aulas" />
                             </div>
@@ -112,11 +125,9 @@
                                 Encerrar turma
                             </button>
                         </form>
-
-
                     </div>
 
-                    <div class="col-md-6  col-lg-6">
+                    <div class="col-md-6 col-lg-6">
                         <form>
                             <h2 id="titulo-form-turma">Alunos da Turma</h2>
                             <button type="button" class="btn btn-outline-danger" id="btn-addAlunosTurma">
@@ -125,7 +136,6 @@
                         </form>
                     </div>
                 </div>
-
             </main>
         </div>
     </div>
@@ -133,7 +143,6 @@
     <script src="./js/validaCadastraTurmas.js"></script>
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
-
 </body>
 
 </html>
