@@ -71,29 +71,41 @@
 
                 <div class="row">
                     <div class="col-md-6  col-lg-6">
-                        <form>
+                        <form id="formCadastroTurma" method="POST">
                             <h2 id="titulo-form-turma">Dados da Turma</h2>
                             <div class="form-group">
                                 <input type="text" class="formTurma" id="nomeTurma" placeholder="Nome da Turma" />
                             </div>
                             <div class="formCadastroTurma">
-                                <input type="text" class="formTurma" id="diasAula" placeholder="Dias de aula" />
+                                <label for="diasAulas">Dias das aulas</label>
+                                <select id="diasAulas">
+                                    <option value="Seg-Sext">Seg-Sext</option> 
+                                    <option value="Seg-Quar-Sext">Seg-Quar-Sext</option>
+                                    <option value="Ter-Quin">Ter-Quin</option>
+                                    <option value="Sab">Sab</option>
+                                    <option value="Dom">Dom</option>
+                                  </select>
                             </div>
                             <div class="formCadastroTurma">
-                                <input type="text" class="formTurma" id="horarioAula"
+                                <input type="datetime" class="formTurma" id="horarioAula"
                                     placeholder="Horário de aula (00:00 até 00:00):" />
                             </div>
                             <div class="formCadastroTurma">
-                                <input type="text" class="formTurma" id="localAula" placeholder="Local de aula" />
+                                <label for="local">Local das aulas</label>
+                                <select id="local">
+                                    <option value="Remoto">Remoto</option> 
+                                    <option value="Presencial">Presencial</option>
+                                  </select>
                             </div>
                             <div class="formCadastroTurma">
-                                <input type="text" class="formTurma" id="inicioAulas" placeholder="Início das aulas" />
+                                <input type="date" class="formTurma" id="inicioAulas" placeholder="Início das aulas" />
                             </div>
+                            
                             <div class="formCadastroTurma">
-                                <input type="text" class="formTurma" id="encerramentoAulas"
+                                <input type="date" class="formTurma" id="encerramentoAulas"
                                     placeholder="Encerramento das aulas" />
                             </div>
-                            <button type="button" class="btn btn-outline-danger" id="btn-form-turma">
+                            <button type="submit" class="btn btn-outline-danger" id="btn-form-turma" id="enviar">
                                 Enviar
                             </button>
                             <button type="button" class="btn btn-outline-danger" id="btn-encerrarTurma">
@@ -101,7 +113,7 @@
                             </button>
                         </form>
 
-                        
+
                     </div>
 
                     <div class="col-md-6  col-lg-6">
@@ -117,6 +129,10 @@
             </main>
         </div>
     </div>
+
+    <script src="./js/validaCadastraTurmas.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.0/jquery-ui.js"></script>
 
 </body>
 
