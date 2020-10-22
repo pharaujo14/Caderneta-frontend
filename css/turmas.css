@@ -1,5 +1,5 @@
 .formTurma {
-    margin: 10px;
+    margin: 8px;
     width: 250px;    
 }
 
@@ -19,9 +19,7 @@
 
 
 main div {
-    
-
-    justify-content: center;
+    justify-content: left;
     align-items: center;
 }
 
