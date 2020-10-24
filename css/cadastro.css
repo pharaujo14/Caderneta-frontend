@@ -46,3 +46,14 @@ input{
   .submit-line input {
     width: 100%;
   }
+
+  .col-6 {    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  h3 {
+    text-align: center;
+    margin: 10px;
+  }

@@ -46,73 +46,45 @@
         </div>
       </nav>
     </header>
-    <div class="forms-container">
-      <div class="cabecalho">
-        <h3>Cadastre-se na Caderneta</h3>
-      </div>
-      <div class="formulario">
-        <form id="formCadastro" method="POST">
-          <div class="form-group">
-            <label for="name">Nome:</label>
-            <input type="text" class="form-control" id="nome" placeholder="Digite seu nome" required />
-          </div>
-          <div class="form-group">
-            <label for="lastname">Sobrenome:</label>
-            <input type="text" class="form-control" id="sobrenome" placeholder="Digite seu sobrenome" required />
-          </div>
-          <div class="form-group">
-            <label for="mail">E-mail:</label>
-            <input type="email" class="form-control" id="email" placeholder="Digite seu email" required />
-          </div>
-          <div class="form-group">
-            <label for="cpf">CPF:</label>
-            <input type="text" class="form-control" id="cpf" placeholder="Digite seu CPF" required />
-          </div>
-          <div class="form-group">
-            <label for="senha">Senha:</label>
-            <div class="submit-line">
-              <input type="password" class="form-control" id="senha" placeholder="Digite a sua senha" required />
-              <span class="span-olho">
-                <i id="senhaOlho" class="fa fa-eye"></i>
-              </span>
-            </div>
-          </div>
-      </div>
+    
+      <h3>Cadastre-se na Caderneta como:</h3>
 
-      <div class="form-group">
-        <label for="confirmasenha">Confirme sua senha:</label>
-        <div class="submit-line">
-          <input type="password" class="form-control" id="confirmasenha" placeholder="Confirme a senha" required />
-          <span class="span-olho">
-            <i id="confirmaSenhaOlho" class="fa fa-eye"></i>
-          </span>
+
+      <div class="row">
+        <div class="col-6">
+
+          <a class="btn btn-outline-danger" href="./cadastro-professor.html">Professor</a>
+
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae velit sed debitis! Repudiandae quisquam
+            itaque reiciendis, illum fugit excepturi voluptatum numquam obcaecati ut provident, debitis accusantium
+            quaerat. Harum, voluptate expedita.</p>
+
+
+
+        </div>
+
+        <div class="col-6">
+
+          <a class="btn btn-outline-danger" href="./cadastro-aluno.html">Aluno</a>
+
+          <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Libero illum ea ex, fugiat animi aliquid sit
+            quam. Provident consequatur, maxime, at molestias pariatur ratione ab, ea autem laudantium et esse!</p>
+
         </div>
       </div>
 
 
-      <div class="alert alert-danger" id="validaSenha" role="alert">
-        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        <span class="sr-only">Error:</span>
-        Os campos de senha devem ser iguais
-      </div>
-
-      <div class="form-group">
-        <button type="reset" class="btn btn-outline-danger">Limpar</button>
-        <button type="submit" class="btn btn-outline-danger" id="enviar">
-          Cadastrar
-        </button>
-      </div>
-      </form>
     </div>
-  </div>
-  </div>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 
-  <script type="text/javascript"
-    src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
 
-  <script src="./js/validaForm.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+
+    <script type="text/javascript"
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.0/jquery.mask.js"></script>
+
+    <script src="./js/validaForm.js"></script>
 </body>
 
 </html>
