@@ -19,7 +19,7 @@ function enviar() {
     insert["local"] = $("#local").val();
     insert["horarioInicio"] = $("#horaInicio").val();
     insert["horarioFim"] = $("#horaEncerramento").val();
-    // insert["dia"] = $("#diasAulas").val();
+    insert["diasAulas"] = $("#diasAulas").val();
     insert["inicio"] = $("#inicioAulas").val().split('-').reverse().join('/');
     insert["fim"] = $("#encerramentoAulas").val().split('-').reverse().join('/');
 
