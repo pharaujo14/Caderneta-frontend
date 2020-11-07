@@ -11,14 +11,14 @@
     <link rel="stylesheet" href="./css/turmas.css" />
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
-        crossorigin="anonymous"></script>
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
-        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
-        crossorigin="anonymous"></script>
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
-        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
-        crossorigin="anonymous"></script>
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
 </head>
 
 <body>
@@ -74,54 +74,54 @@
                             <div class="form-group">
                                 <label for="nomeTurma">Nome da Turma: </label>
                                 <br>
-                                <input type="text" class="formTurma" id="nomeTurma" placeholder="Nome da Turma" />
+                                <input type="text" class="formTurma" id="nomeTurma" placeholder="Nome da Turma" name="nome" />
                             </div>
                             <div class="formCadastroTurma">
                                 <label for="diasAulas">Dias das aulas: </label>
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="1" id="">
+                                    <input class="form-check-input" type="checkbox" value="1" name="diasAulas" id="">
                                     <label class="form-check-label" for="diasAulas">
                                         Domingo
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="2" id="">
+                                    <input class="form-check-input" type="checkbox" value="2" name="diasAulas" id="">
                                     <label class="form-check-label" for="diasAulas">
                                         Segunda-Feira
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="3" id="">
+                                    <input class="form-check-input" type="checkbox" value="3" name="diasAulas" id="">
                                     <label class="form-check-label" for="diasAulas">
                                         Terça-Feira
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="4" id="">
+                                    <input class="form-check-input" type="checkbox" value="4" name="diasAulas" id="">
                                     <label class="form-check-label" for="diasAulas">
                                         Quarta-Feira
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="5" id="">
+                                    <input class="form-check-input" type="checkbox" value="5" name="diasAulas" id="">
                                     <label class="form-check-label" for="diasAulas">
                                         Quinta-Feira
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="6" id="">
+                                    <input class="form-check-input" type="checkbox" value="6" name="diasAulas" id="">
                                     <label class="form-check-label" for="diasAulas">
                                         Sexta-Feira
                                     </label>
                                 </div>
 
                                 <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" value="7" id="">
+                                    <input class="form-check-input" type="checkbox" value="7" name="diasAulas" id="">
                                     <label class="form-check-label" for="diasAulas">
                                         Sábado
                                     </label>
@@ -134,17 +134,17 @@
                                 <label for="horaInicio">Horário de início da aula:</label>
                                 <br>
 
-                                <input type="time" id="horaInicio" class="formTurma" required />
+                                <input type="time" id="horaInicio" class="formTurma" required name="horaInicio" />
                             </div>
                             <div class="formCadastroTurma">
                                 <label for="horaEncerramento">Horário de término da aula:</label>
                                 <br>
 
-                                <input type="time" id="horaEncerramento" class="formTurma" required />
+                                <input type="time" id="horaEncerramento" class="formTurma" name="horaEncerramento" required />
                             </div>
                             <div class="formCadastroTurma">
                                 <label for="local">Local das aulas: </label>
-                                <select class="form-control" id="local">
+                                <select class="form-control" id="local" name="local">
                                     <option value="Remoto">Remoto</option>
                                     <option value="Presencial">Presencial</option>
                                 </select>
@@ -152,13 +152,13 @@
                             <div class="formCadastroTurma">
                                 <label for="inicioAulas">Data de início: </label>
                                 <br />
-                                <input type="date" class="formTurma" id="inicioAulas" placeholder="Início das aulas" />
+                                <input type="date" class="formTurma" id="inicioAulas" name="inicioAulas" placeholder="Início das aulas" />
                             </div>
 
                             <div class="formCadastroTurma">
                                 <label for="encerramentoAulas">Data de encerramento: </label>
                                 <br />
-                                <input type="date" class="formTurma" id="encerramentoAulas"
+                                <input type="date" class="formTurma" id="encerramentoAulas" name="encerramentoAulas"
                                     placeholder="Encerramento das aulas" />
                             </div>
                             <button type="submit" class="btn btn-outline-danger" id="btn-form-turma" id="enviar">

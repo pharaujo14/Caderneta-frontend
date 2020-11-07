@@ -14,14 +14,27 @@ function ajustaData(){
 }
 
 function enviar() {
-    var insert = {};
-    insert["nome"] = $("#nomeTurma").val();
-    insert["local"] = $("#local").val();
-    insert["horarioInicio"] = $("#horaInicio").val();
-    insert["horarioFim"] = $("#horaEncerramento").val();
-    insert["diasAulas"] = $("#diasAulas").val();
-    insert["inicio"] = $("#inicioAulas").val().split('-').reverse().join('/');
-    insert["fim"] = $("#encerramentoAulas").val().split('-').reverse().join('/');
+    let insert = {};
+    insert.nome = $("#nomeTurma").val();
+    insert.local = $("#local").val();
+    insert.horarioInicio = $("#horaInicio").val();
+    insert.horarioFim = $("#horaEncerramento").val();
+    
+    insert.diasAulas = []     
+
+    insert.inicio = $("#inicioAulas").val().split('-').reverse().join('/');
+    insert.fim = $("#encerramentoAulas").val().split('-').reverse().join('/');    
+
+    $(".form-check-input").each((i,e) => {
+        
+        if ($(e).is(":checked")) {
+            insert.diasAulas.push(parseInt($(e).val()))
+        }        
+    })
+
+    
+
+    
 
     $("#enviar").prop("disabled", true);
 
