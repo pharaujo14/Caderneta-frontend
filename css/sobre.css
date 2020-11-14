@@ -1,0 +1,59 @@
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.icone {
+    width: 100px;
+}
+
+.logo-container {
+    text-align: center;
+    font-size: large;
+    color:black;
+    padding: 5%;
+  }
+
+  .logo-container p {
+    text-align: justify;
+    margin-top: 20px;
+  }
+
+.botao-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;    
+}
+
+.botao-container a {
+    margin: 50px;
+}
+
+
+.vantagens-container {
+    display: flex;
+    justify-content: center;
+}
+
+section {
+    width: 400px;
+    height: 50px;
+    border-radius: 3px;
+    margin: 50px;
+    background-color: gainsboro;
+    color: red;
+    text-align: center;
+}
+
+.equipe {
+    
+    text-align: center;
+    padding: 0% 20% 0% 20%;
+}
+
+h2{
+    text-align: center;
+
+    margin-bottom: 50px;
+}
