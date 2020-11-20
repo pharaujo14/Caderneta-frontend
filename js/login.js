@@ -2,8 +2,6 @@ var button = document.getElementById('login');
 var username = document.getElementById('email');
 var password = document.getElementById('senha');
 
-
-
 function logar(event) {
     event.preventDefault();
    
@@ -13,17 +11,14 @@ function logar(event) {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function(){
         if(this.readyState === XMLHttpRequest.DONE && this.status === 200){
-            xhr.response;
-            console.log(xhr.response);
+            var jwt = xhr.response;
+            console.log(jwt);
+            localStorage.setItem("jwt", jwt)
+            //window.location.href = 'dashboard.html';
         }
     }
     const login = '{ "username" : "' + username.value + '", "password" : "' + password.value + '"}';
-    xhr.send(login);
-    // window.location.href = 'cliente.html';
+    xhr.send(login);    
 }
 
-
-
-console.log(button);
-
-button.addEventListener("click", logar, false);
+button.addEventListener("click", logar  , false);
