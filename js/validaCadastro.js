@@ -22,8 +22,13 @@ function validarSenha(){
   return true;
 }
 
+
+
 function enviar() {
-  var insert = {};
+
+  var role = $("#role").val()
+
+  var insert = {};  
   insert["nome"] = $("#nome").val();
   insert["sobrenome"] = $("#sobrenome").val();
   insert["email"] = $("#email").val();
@@ -32,16 +37,31 @@ function enviar() {
 
   $("#enviar").prop("disabled", true);
 
-  $.ajax({
-    type: "POST",
-    contentType: "application/json",
-    url: "http://localhost:8080/alunos",
-    data: JSON.stringify(insert),
-    dataType: "json",
-    cache: false,
-    timeout: 600000,
-    sucess: alert("Cadastro realizado com sucesso")
-  });
+  if(role == 1){
+    $.ajax({
+      type: "POST",
+      contentType: "application/json",
+      url: "http://localhost:8080/professores",
+      data: JSON.stringify(insert),
+      dataType: "json",
+      cache: false,
+      timeout: 600000,
+      sucess: alert("Cadastro realizado com sucesso")
+    });
+  } else {
+    $.ajax({
+      type: "POST",
+      contentType: "application/json",
+      url: "http://localhost:8080/alunos",
+      data: JSON.stringify(insert),
+      dataType: "json",
+      cache: false,
+      timeout: 600000,
+      sucess: alert("Cadastro realizado com sucesso")
+    });
+  }
+
+  
 }
 
 
