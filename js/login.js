@@ -11,9 +11,10 @@ function logar(event) {
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onreadystatechange = function(){
         if(this.readyState === XMLHttpRequest.DONE && this.status === 200){
-            var jwt = xhr.response;
+            var loginResponse = xhr.response;
+            var jwt = JSON.parse(loginResponse).jwt;
             console.log(jwt);
-            localStorage.setItem("jwt", jwt)
+            localStorage.setItem("jwt", "Bearer " + jwt)
             //window.location.href = 'dashboard.html';
         }
     }

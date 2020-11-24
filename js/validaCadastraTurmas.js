@@ -6,6 +6,8 @@ $(document).ready(function () {
   });
 });
 
+var jwt = localStorage.getItem('jwt');
+
 function ajustaData() {
   $('[type="date"]').on("keydown", function () {
     event.preventDefault();
@@ -13,7 +15,7 @@ function ajustaData() {
   });
 }
 
-async function enviar() {
+function enviar(jwt) {
   let insert = {};
   insert.nome = $("#nomeTurma").val();
   insert.local = $("#local").val();
@@ -21,39 +23,6 @@ async function enviar() {
   insert.horarioFim = $("#horaEncerramento").val();
   insert.inicio = $("#inicioAulas").val().split("-").reverse().join("/");
   insert.fim = $("#encerramentoAulas").val().split("-").reverse().join("/");
-
-  $("#enviar").prop("disabled", true);
-
-  $.ajax({
-    type: "POST",
-    contentType: "application/json",
-    url: "http://localhost:8080/turmas",
-    data: JSON.stringify(insert),
-    dataType: "json",
-    cache: false,
-    timeout: 600000,
-    sucess: criarAulas(), 
-  });
-
-  alert("Cadastro realizado com sucesso");
-}
-
-async function buscaURL() {
-  var url = response.location;
-  url = url.split("turmas/");
-  console.log(url);
-  return url;
-
-  
-}
-
-async function criarAulas() {
-  let insert = {};
-
-  var url = window.location.href;
-  url = url.split("turmas/");
-  console.log(url);
-
   insert.dias = [];
 
   $(".form-check-input").each((i, e) => {
@@ -62,16 +31,18 @@ async function criarAulas() {
     }
   });
 
-  insert.turma = url;
+  $("#enviar").prop("disabled", true);
 
   $.ajax({
     type: "POST",
     contentType: "application/json",
-    url: "http://localhost:8080/aulas/emLote",
+    url: "http://localhost:8080/turmas",
+    headers: {"Authorization": localStorage.getItem('jwt')},
     data: JSON.stringify(insert),
     dataType: "json",
     cache: false,
     timeout: 600000,
-    sucess: alert("Cadastro realizado com sucesso"),
+    sucess: alert("Cadastro realizado com sucesso")
   });
+ 
 }
