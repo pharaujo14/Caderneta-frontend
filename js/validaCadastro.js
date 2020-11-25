@@ -46,8 +46,12 @@ function enviar() {
       dataType: "json",
       cache: false,
       timeout: 600000,
-      success: alert("Cadastro realizado com sucesso")
-    });
+      success: function(){
+        alert("Cadastro realizado com sucesso")},
+      error: function() {
+      alert("Email já cadastrado!")
+      }});
+
   } else {
     $.ajax({
       type: "POST",
@@ -57,8 +61,11 @@ function enviar() {
       dataType: "json",
       cache: false,
       timeout: 600000,
-      success: alert("Cadastro realizado com sucesso")
-    });
+      success: function(){
+        alert("Cadastro realizado com sucesso")},
+      error: function() {
+      alert("Email já cadastrado!")
+      }});
   }
 
   
