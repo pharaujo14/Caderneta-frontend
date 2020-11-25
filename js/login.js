@@ -1,25 +1,48 @@
-var button = document.getElementById('login');
-var username = document.getElementById('email');
-var password = document.getElementById('senha');
+function parseJwt (token) {
+    let base64Url = token.split('.')[1];
+    let base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    let jsonPayload = decodeURIComponent(atob(base64).split('').map(function(c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
 
-function logar(event) {
-    event.preventDefault();
-   
-  
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://localhost:8080/login", true);
-    xhr.setRequestHeader("Content-Type", "application/json");
-    xhr.onreadystatechange = function(){
-        if(this.readyState === XMLHttpRequest.DONE && this.status === 200){
-            var loginResponse = xhr.response;
-            var jwt = JSON.parse(loginResponse).jwt;
-            console.log(jwt);
-            localStorage.setItem("jwt", "Bearer " + jwt)
-            //window.location.href = 'dashboard.html';
+    return JSON.parse(jsonPayload);
+};
+
+function logar(login, senha) {
+
+    const json = {
+        username : login,
+        password : senha,
+    };
+
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "http://localhost:8080/login",
+        data: JSON.stringify(json),
+        dataType: "json",    
+        success: function(resposta) {
+            let token = `Bearer ${resposta.jwt}`
+            let tokenP = parseJwt(resposta.jwt);            
+            localStorage.setItem("token", token);
+            localStorage.setItem("role", tokenP.role);
+            location.href = "dashboard.html"
+        }, error: function() {
+            alert("Usuario ou senha incorretos!");
         }
-    }
-    const login = '{ "username" : "' + username.value + '", "password" : "' + password.value + '"}';
-    xhr.send(login);    
+
+    });    
 }
 
-button.addEventListener("click", logar  , false);
+$('#formLogin').on('submit', function(event){
+
+    event.preventDefault();
+
+    let username = $('#email').val();
+
+    let password = $('#senha').val();
+
+    logar(username, password);
+
+})
+

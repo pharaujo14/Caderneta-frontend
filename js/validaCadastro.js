@@ -46,7 +46,7 @@ function enviar() {
       dataType: "json",
       cache: false,
       timeout: 600000,
-      sucess: alert("Cadastro realizado com sucesso")
+      success: alert("Cadastro realizado com sucesso")
     });
   } else {
     $.ajax({
@@ -57,7 +57,7 @@ function enviar() {
       dataType: "json",
       cache: false,
       timeout: 600000,
-      sucess: alert("Cadastro realizado com sucesso")
+      success: alert("Cadastro realizado com sucesso")
     });
   }
 
