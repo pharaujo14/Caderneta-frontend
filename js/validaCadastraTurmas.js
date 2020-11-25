@@ -42,7 +42,17 @@ function enviar(jwt) {
     dataType: "json",
     cache: false,
     timeout: 600000,
-    sucess: alert("Cadastro realizado com sucesso")
+    success :function(data) {
+      alert("Cadastro realizado com sucesso");
+      setTimeout(redirecionar(), 10000);
+      
+    }
   });
+
+  function redirecionar(){
+    window.location.href = 'dashboard.html'; 
+  }
+
+  
  
 }
