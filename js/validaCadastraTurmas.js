@@ -37,7 +37,7 @@ function enviar(jwt) {
     type: "POST",
     contentType: "application/json",
     url: "http://localhost:8080/turmas",
-    headers: {"Authorization": localStorage.getItem('jwt')},
+    headers: {"Authorization": localStorage.getItem('token')},
     data: JSON.stringify(insert),
     dataType: "json",
     cache: false,

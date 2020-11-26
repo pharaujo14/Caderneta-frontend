@@ -11,3 +11,12 @@ function parseJwt (token) {
 
     return JSON.parse(jsonPayload);
 };
+
+function row (elemento) {
+
+    return `<div class="row"> ${elemento} </div>`
+
+    
+}
+
+

@@ -12,8 +12,7 @@ function logar(login, senha) {
         data: JSON.stringify(json),
         dataType: "json",    
         success: function(resposta) {
-            let token = `Bearer ${resposta.jwt}`
-            let tokenP = parseJwt(resposta.jwt);            
+            let token = `Bearer ${resposta.jwt}`            
             localStorage.setItem("token", token);
             location.href = "dashboard.html"
         }, error: function() {
