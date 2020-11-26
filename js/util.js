@@ -12,11 +12,19 @@ function parseJwt (token) {
     return JSON.parse(jsonPayload);
 };
 
-function row (elemento) {
+function row (elemento, classes) {
 
-    return `<div class="row"> ${elemento} </div>`
+    return `<div class="row ${classes!=undefined?classes:''}"> ${elemento} </div>`
 
     
 }
 
+function getDataFromURL(key){
+
+    const urlParams = new URLSearchParams(location.search)
+
+    let  param = urlParams.get(key)
+
+    return param
+}
 

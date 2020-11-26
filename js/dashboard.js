@@ -1,13 +1,13 @@
 function cardTurma(turma) {
 
     let template = 
-    `<div class="col">
+    `<div class="col-md-3 mb-3">
     <div class="card">
     <div class="card-body">
       <h5 class="card-title">${turma.nome}</h5>
       <h6 class="card-subtitle mb-2 text-muted">${turma.horarioInicio} até ${turma.horarioFim} - ${turma.local}</h6>
       <p class="card-text">As aulas começaram no dia ${turma.inicio} e serão finalizadas no dia ${turma.fim}</p>
-      <a href="#" class="card-link">Ver Turma</a>      
+      <a href="turma.html?id=${turma.id}" class="card-link">Ver Turma</a>      
     </div>
   </div>
   </div>`
@@ -33,7 +33,7 @@ function renderConteudoProfessor(role, id, token) {
                 template += cardTurma(turma);
             });
 
-            let linha = row(template);
+            let linha = row(template, 'mt-2');
 
             $('.container-conteudo').html(linha);
 
