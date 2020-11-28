@@ -3,6 +3,7 @@ $(document).ready(function () {
   $("#formCadastroTurma").submit(function (event) {
     event.preventDefault();
     enviar();
+    setTimeout(redirecionar(), 10000);
   });
 });
 
@@ -13,6 +14,11 @@ function ajustaData() {
     event.preventDefault();
     return false;
   });
+}
+
+
+function redirecionar(){
+  window.location.href = 'dashboard.html'; 
 }
 
 function enviar(jwt) {
@@ -42,17 +48,7 @@ function enviar(jwt) {
     dataType: "json",
     cache: false,
     timeout: 600000,
-    success :function(data) {
-      alert("Cadastro realizado com sucesso");
-      setTimeout(redirecionar(), 10000);
-      
-    }
+    success : alert("Cadastro realizado com sucesso")      
   });
-
-  function redirecionar(){
-    window.location.href = 'dashboard.html'; 
-  }
-
-  
  
 }
