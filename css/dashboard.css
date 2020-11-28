@@ -25,3 +25,8 @@ nav a{
 main {
     height: 100vh;
 }
+
+.aulas-turma{
+    max-height: 500px;
+    overflow: auto;
+}

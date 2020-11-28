@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/dashboard.css" />
+    
 </head>
 
 <body>
@@ -68,6 +69,10 @@
                                             <div class="dados-turma">
 
                                             </div>
+                                            <h5 class="mt-4">Aulas:</h5>
+                                            <div class="aulas-turma">
+
+                                            </div>
 
                                         </div>
                                     </div>
@@ -79,8 +84,11 @@
                                             <div class="list-alunos">
 
                                             </div>
-                                            <input type="text">
-                                            <button></button>
+                                            <form method="PUT" id="addAlunosForm">
+                                                <input type="email" placeholder="Digite o email do aluno" id="email">
+                                                <button type="submit" class="btn btn-outline-danger" id="cadastrar"> Adicionar
+                                                </button>
+                                            </form>
 
                                         </div>
                                     </div>

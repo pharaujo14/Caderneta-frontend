@@ -3,8 +3,8 @@ let idTurma = getDataFromURL("id");
 
 function cardTurma(turma) {
 
-    let template = 
-    `<div class="col-12">
+    let template =
+        `<div class="col-12">
     <div class="card">
     <div class="card-body">
       <h5 class="card-title">Nome: ${turma.nome}</h5>
@@ -16,17 +16,27 @@ function cardTurma(turma) {
   </div>
   </div>`
 
-return template
+    return template
 }
 
 
-function listAlunos (items) {
-return `<ul class="list-group list-group-flush">${items}</ul>`
+function listAlunos(alunos) {
+    return `<ul class="list-group list-group-flush">${alunos}</ul>`
 }
 
 function listItemAluno(aluno) {
 
-return `<li class="list-group-item">${aluno.email}</li>`
+    return `<li class="list-group-item">${aluno.email}</li>`
+
+}
+
+function listAulas(aulas) {
+    return `<ul class="list-group list-group-flush">${aulas}</ul>`
+}
+
+function listItemAula(aula, index) {
+
+    return `<li class="list-group-item">Aula ${index + 1} ${aula}</li>`
 
 }
 
@@ -41,7 +51,7 @@ function getTurma(token, idTurma) {
         },
         success: function (resposta) {
 
-                        
+
             let template = ''
 
             resposta.alunos.forEach(aluno => {
@@ -57,13 +67,83 @@ function getTurma(token, idTurma) {
             $('.list-alunos').html(list);
             $('.dados-turma').html(linha);
 
-            
-            
+
+
         }
     });
 
 }
 
-getTurma(token,idTurma);
+function getAula(token, idTurma) {
 
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: "http://localhost:8080/aulas/turma/" + idTurma,
+        headers: {
+            "Authorization": token
+        },
+        success: function (resposta) {          
 
+            let dataAula = resposta.map(element => {
+                return element.data
+            })                      
+
+            let template = ''
+
+            dataAula.forEach((aula, index) => {
+                template += listItemAula(aula, index)
+            });
+
+            
+            let list = listAulas(template)
+
+            $('.aulas-turma').html(list);
+            
+
+        }
+    });
+
+}
+
+function addAluno(emailA, idTurma) {
+
+    const json = {
+        emailAluno: emailA,
+        id: idTurma
+    };
+  
+    console.log(json);
+  
+    $.ajax({
+        type: "PUT",
+        contentType: "application/json",
+        url: "http://localhost:8080/turmas/addAlunos",
+        data: JSON.stringify(json),
+        dataType: "json",    
+        success: alert("Adicionado com sucesso!")
+    });
+
+    setTimeout(recarregar(), 3000);
+  }
+  
+  $('#addAlunosForm').on('submit', function(event){
+  
+    event.preventDefault();
+    
+  
+    let emailA= $('#email').val();
+  
+    
+  
+    addAluno(emailA, idTurma);
+  
+  })
+  
+  function recarregar() {
+    window.location.reload();
+  }
+  
+
+getTurma(token, idTurma);
+getAula(token, idTurma);
