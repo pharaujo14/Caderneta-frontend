@@ -1,5 +1,8 @@
 let token = getToken();
 let idTurma = getDataFromURL("id");
+let inputAluno = $('#email');
+
+inputAluno.focus();
 
 function cardTurma(turma) {
 
@@ -25,9 +28,9 @@ function listAlunos(alunos) {
 }
 
 function listItemAluno(aluno) {
-
-    return `<li class="list-group-item">${aluno.email}</li>`
-
+    return `<div id=${aluno.email}>
+                <span>${aluno.email}</span>
+            </div>`
 }
 
 function listAulas(aulas) {
@@ -50,14 +53,13 @@ function getTurma(token, idTurma) {
             "Authorization": token
         },
         success: function (resposta) {
-
-
+            
             let template = ''
 
             resposta.alunos.forEach(aluno => {
-                template += listItemAluno(aluno)
+                template += listItemAluno(aluno);                
             });
-
+     
             let turma = cardTurma(resposta);
 
             let linha = row(turma);
@@ -66,9 +68,6 @@ function getTurma(token, idTurma) {
 
             $('.list-alunos').html(list);
             $('.dados-turma').html(linha);
-
-
-
         }
     });
 
@@ -83,11 +82,11 @@ function getAula(token, idTurma) {
         headers: {
             "Authorization": token
         },
-        success: function (resposta) {          
+        success: function (resposta) {
 
             let dataAula = resposta.map(element => {
                 return element.data
-            })                      
+            })
 
             let template = ''
 
@@ -95,12 +94,10 @@ function getAula(token, idTurma) {
                 template += listItemAula(aula, index)
             });
 
-            
+
             let list = listAulas(template)
 
             $('.aulas-turma').html(list);
-            
-
         }
     });
 
@@ -112,38 +109,72 @@ function addAluno(emailA, idTurma) {
         emailAluno: emailA,
         id: idTurma
     };
-  
-    console.log(json);
-  
+
     $.ajax({
         type: "PUT",
         contentType: "application/json",
         url: "http://localhost:8080/turmas/addAlunos",
         data: JSON.stringify(json),
-        dataType: "json",    
-        success: alert("Adicionado com sucesso!")
+        dataType: "json",
+        success: function(retorno){
+            alert("Aluno adicionado com sucesso");
+            setTimeout(recarregar(), 5000);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown){
+            alert("Erro ao adicionar o aluno, verifique se o email está correto");
+        }
     });
+    
+}
 
-    setTimeout(recarregar(), 3000);
-  }
-  
-  $('#addAlunosForm').on('submit', function(event){
-  
+$('#cadastrar').on('click', function (event) {
+
     event.preventDefault();
-    
-  
-    let emailA= $('#email').val();
-  
-    
-  
+
+    let emailA = $('#email').val();
+
     addAluno(emailA, idTurma);
-  
-  })
-  
-  function recarregar() {
-    window.location.reload();
-  }
-  
+
+})
+
+function deleteAluno(emailA, idTurma) {
+
+    const json = {
+        emailAluno: emailA,
+        id: idTurma
+    };
+
+    $.ajax({
+        type: "PUT",
+        contentType: "application/json",
+        url: "http://localhost:8080/turmas/deleteAlunos",
+        data: JSON.stringify(json),
+        dataType: "json",
+        success: function(retorno){
+            alert("Aluno removido com sucesso");
+            setTimeout(recarregar(), 5000);
+        },
+        error: function(XMLHttpRequest, textStatus, errorThrown){
+            alert("Erro ao remover o aluno, verifique se o email está correto");
+        }
+    });
+    
+}
+
+$('#remover').on('click', function (event) {
+
+    event.preventDefault();
+
+    let emailA = $('#email').val();
+
+    deleteAluno(emailA, idTurma);
+
+})
+
+function recarregar(){
+    window.location.reload(false);
+}
+
 
 getTurma(token, idTurma);
 getAula(token, idTurma);
