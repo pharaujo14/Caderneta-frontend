@@ -16,7 +16,7 @@ function logar(login, senha) {
             localStorage.setItem("token", token);
             location.href = "dashboard.html"
         }, error: function() {
-            alert("Usuario ou senha incorretos!");
+            swal("Algo deu errado...!", "Login ou senha incorreto!", "error");
         }
 
     });    

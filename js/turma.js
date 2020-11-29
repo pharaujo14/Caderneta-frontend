@@ -53,13 +53,13 @@ function getTurma(token, idTurma) {
             "Authorization": token
         },
         success: function (resposta) {
-            
+
             let template = ''
 
             resposta.alunos.forEach(aluno => {
-                template += listItemAluno(aluno);                
+                template += listItemAluno(aluno);
             });
-     
+
             let turma = cardTurma(resposta);
 
             let linha = row(turma);
@@ -116,15 +116,17 @@ function addAluno(emailA, idTurma) {
         url: "http://localhost:8080/turmas/addAlunos",
         data: JSON.stringify(json),
         dataType: "json",
-        success: function(retorno){
-            alert("Aluno adicionado com sucesso");
-            setTimeout(recarregar(), 5000);
+        success: function (retorno) {
+            swal("Concluído", "Aluno adicionado com sucesso!", "success")
+                .then((value) => {
+                    setTimeout(recarregar(), 10000);
+                });            
         },
-        error: function(XMLHttpRequest, textStatus, errorThrown){
-            alert("Erro ao adicionar o aluno, verifique se o email está correto");
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            swal("Algo deu errado...!", "Verifique se o e-mail está correto", "error");
         }
     });
-    
+
 }
 
 $('#cadastrar').on('click', function (event) {
@@ -150,15 +152,17 @@ function deleteAluno(emailA, idTurma) {
         url: "http://localhost:8080/turmas/deleteAlunos",
         data: JSON.stringify(json),
         dataType: "json",
-        success: function(retorno){
-            alert("Aluno removido com sucesso");
-            setTimeout(recarregar(), 5000);
+        success: function (retorno) {
+            swal("Concluído", "Aluno removido com sucesso!", "success")
+                .then((value) => {
+                    setTimeout(recarregar(), 10000);
+                });            
         },
-        error: function(XMLHttpRequest, textStatus, errorThrown){
-            alert("Erro ao remover o aluno, verifique se o email está correto");
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            swal("Algo deu errado...!", "Verifique se o e-mail está correto", "error");
         }
     });
-    
+
 }
 
 $('#remover').on('click', function (event) {
@@ -171,7 +175,55 @@ $('#remover').on('click', function (event) {
 
 })
 
-function recarregar(){
+function deleteTurma(idTurma) {
+
+    const json = {
+        id: idTurma
+    };
+
+    $.ajax({
+        type: "DELETE",
+        contentType: "application/json",
+        url: "http://localhost:8080/turmas",
+        data: JSON.stringify(json),
+        dataType: "json",
+        success: function (retorno) {
+            swal("Concluído", "Turma removida com sucesso!", "success")
+                .then((value) => {
+                    window.location.href = 'dashboard.html'; 
+                });            
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            swal("Erro", "Algo deu errado...!", "error");
+        }
+    });
+
+}
+
+$('#deletarTurma').on('click', function (event) {
+
+    event.preventDefault();
+    
+    swal({
+        title: "Alerta",
+        text: "Caso delete a turma, todos os dados serão apagados",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            deleteTurma(idTurma);
+        } else {
+          swal("Ok, sua turma continua aqui...");
+        }
+      });
+      
+    
+
+})
+
+function recarregar() {
     window.location.reload(false);
 }
 

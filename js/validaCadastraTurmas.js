@@ -18,7 +18,10 @@ function ajustaData() {
 
 
 function redirecionar(){
-  window.location.href = 'dashboard.html'; 
+  swal("Concluído", "Turma criada com sucesso!", "success")
+  .then((value) => {
+    window.location.href = 'dashboard.html'; 
+  });            
 }
 
 function enviar(jwt) {
@@ -48,7 +51,6 @@ function enviar(jwt) {
     dataType: "json",
     cache: false,
     timeout: 600000,
-    success : alert("Cadastro realizado com sucesso")      
   });
  
 }
