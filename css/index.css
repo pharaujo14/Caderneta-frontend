@@ -8,43 +8,27 @@ body {
     width: 100px;
 }
 
-.logo-container {
+.logo-container {    
     text-align: center;
-    margin-top: 15%;
-    color: gray;
-  }
+    margin-top: 20%;
+    color: gray;    
+}
 
-.botao-container{
+.logo-container img {
+    width: 70%;
+}
+
+.botao-container {
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
 
 .botao-container a {
     margin: 50px;
 }
 
-
 .vantagens-container {
     display: flex;
     justify-content: center;
 }
-
-section {
-    justify-content: center;
-    align-items: center;
-    width: 400px;
-    height: 60px;
-    border-radius: 3px;
-    background-color: whitesmoke;
-
-    padding: 5px;
-    
-    
-    margin: 50px;
-    
-    color: red;
-    font-weight: normal;
-    text-align: center;
-}
-

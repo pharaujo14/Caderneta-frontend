@@ -1,25 +1,20 @@
 body {
     display: flex;
     align-items: center;
-    justify-content: center;
-    
+    justify-content: center;    
 }
 
 .icone {
   width: 100px;
 }
 
-
-
 h3{
-  text-align: center;
-  margin: 50px;
+  text-align: center;  
 }
 
 .col-12{
   display: flex;
   justify-content: center;
-
 }
 
 

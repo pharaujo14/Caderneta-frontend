@@ -22,15 +22,12 @@ function cardTurma(turma) {
     return template
 }
 
-
 function listAlunos(alunos) {
     return `<ul class="list-group list-group-flush">${alunos}</ul>`
 }
 
 function listItemAluno(aluno) {
-    return `<div id=${aluno.email}>
-                <span>${aluno.email}</span>
-            </div>`
+    return `<li class="list-group-item">${aluno.email}</li>`
 }
 
 function listAulas(aulas) {
@@ -38,73 +35,10 @@ function listAulas(aulas) {
 }
 
 function listItemAula(aula, index) {
-
-    return `<li class="list-group-item">Aula ${index + 1} ${aula}</li>`
-
-}
-
-function getTurma(token, idTurma) {
-
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "http://localhost:8080/turmas/" + idTurma,
-        headers: {
-            "Authorization": token
-        },
-        success: function (resposta) {
-
-            let template = ''
-
-            resposta.alunos.forEach(aluno => {
-                template += listItemAluno(aluno);
-            });
-
-            let turma = cardTurma(resposta);
-
-            let linha = row(turma);
-
-            let list = listAlunos(template)
-
-            $('.list-alunos').html(list);
-            $('.dados-turma').html(linha);
-        }
-    });
-
-}
-
-function getAula(token, idTurma) {
-
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: "http://localhost:8080/aulas/turma/" + idTurma,
-        headers: {
-            "Authorization": token
-        },
-        success: function (resposta) {
-
-            let dataAula = resposta.map(element => {
-                return element.data
-            })
-
-            let template = ''
-
-            dataAula.forEach((aula, index) => {
-                template += listItemAula(aula, index)
-            });
-
-
-            let list = listAulas(template)
-
-            $('.aulas-turma').html(list);
-        }
-    });
-
+    return `<li class="list-group-item">Aula ${index + 1}: ${aula}</li>`
 }
 
 function addAluno(emailA, idTurma) {
-
     const json = {
         emailAluno: emailA,
         id: idTurma
@@ -120,27 +54,21 @@ function addAluno(emailA, idTurma) {
             swal("Concluído", "Aluno adicionado com sucesso!", "success")
                 .then((value) => {
                     setTimeout(recarregar(), 10000);
-                });            
+                });
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             swal("Algo deu errado...!", "Verifique se o e-mail está correto", "error");
         }
     });
-
 }
 
 $('#cadastrar').on('click', function (event) {
-
     event.preventDefault();
-
     let emailA = $('#email').val();
-
     addAluno(emailA, idTurma);
-
 })
 
 function deleteAluno(emailA, idTurma) {
-
     const json = {
         emailAluno: emailA,
         id: idTurma
@@ -156,77 +84,179 @@ function deleteAluno(emailA, idTurma) {
             swal("Concluído", "Aluno removido com sucesso!", "success")
                 .then((value) => {
                     setTimeout(recarregar(), 10000);
-                });            
+                });
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             swal("Algo deu errado...!", "Verifique se o e-mail está correto", "error");
         }
     });
-
 }
 
 $('#remover').on('click', function (event) {
-
     event.preventDefault();
-
     let emailA = $('#email').val();
-
-    deleteAluno(emailA, idTurma);
-
-})
-
-function deleteTurma(idTurma) {
-
-    const json = {
-        id: idTurma
-    };
-
-    $.ajax({
-        type: "DELETE",
-        contentType: "application/json",
-        url: "http://localhost:8080/turmas",
-        data: JSON.stringify(json),
-        dataType: "json",
-        success: function (retorno) {
-            swal("Concluído", "Turma removida com sucesso!", "success")
-                .then((value) => {
-                    window.location.href = 'dashboard.html'; 
-                });            
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            swal("Erro", "Algo deu errado...!", "error");
-        }
-    });
-
-}
-
-$('#deletarTurma').on('click', function (event) {
-
-    event.preventDefault();
-    
-    swal({
-        title: "Alerta",
-        text: "Caso delete a turma, todos os dados serão apagados",
-        icon: "warning",
-        buttons: true,
-        dangerMode: true,
-      })
-      .then((willDelete) => {
-        if (willDelete) {
-            deleteTurma(idTurma);
-        } else {
-          swal("Ok, sua turma continua aqui...");
-        }
-      });
-      
-    
-
+    addAluno(emailA, idTurma);
 })
 
 function recarregar() {
-    window.location.reload(false);
+    window.location.reload();
+}
+
+function renderConteudoProfessor(role, id, token) {
+    function getTurma(token, idTurma) {
+
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "http://localhost:8080/turmas/" + idTurma,
+            headers: {
+                "Authorization": token
+            },
+            success: function (resposta) {
+
+
+                let template = ''
+
+                resposta.alunos.forEach(aluno => {
+                    template += listItemAluno(aluno)
+                });
+
+                let turma = cardTurma(resposta);
+
+                let linha = row(turma);
+
+                let list = listAlunos(template)
+
+                $('.list-alunos').html(list);
+                $('.dados-turma').html(linha);
+
+
+
+            }
+        });
+
+    }
+
+    function getAula(token, idTurma) {
+
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "http://localhost:8080/aulas/turma/" + idTurma,
+            headers: {
+                "Authorization": token
+            },
+            success: function (resposta) {
+
+                let dataAula = resposta.map(element => {
+                    return element.data
+                })
+
+                let template = ''
+
+                dataAula.forEach((aula, index) => {
+                    template += listItemAula(aula, index)
+                });
+
+
+                let list = listAulas(template)
+
+                $('.aulas-turma').html(list);
+
+
+            }
+        });
+    }
+
+    getTurma(token, idTurma);
+    getAula(token, idTurma);
+}
+
+function renderConteudoAluno(role, id, token) {
+
+    $('.alunos').css('display', 'none');
+    $('.botao').css('display', 'none');
+
+    function getTurma(token, idTurma) {
+
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "http://localhost:8080/turmas/" + idTurma,
+            headers: {
+                "Authorization": token
+            },
+            success: function (resposta) {
+
+
+                let template = ''
+
+
+
+                let turma = cardTurma(resposta);
+
+                let linha = row(turma);
+
+                $('.dados-turma').html(linha);
+
+
+
+            }
+        });
+
+    }
+
+    function getAula(token, idTurma) {
+
+        $.ajax({
+            type: "GET",
+            contentType: "application/json",
+            url: "http://localhost:8080/aulas/turma/" + idTurma,
+            headers: {
+                "Authorization": token
+            },
+            success: function (resposta) {
+
+                let dataAula = resposta.map(element => {
+                    return element.data
+                })
+
+                let template = ''
+
+                dataAula.forEach((aula, index) => {
+                    template += listItemAula(aula, index)
+                });
+
+
+                let list = listAulas(template)
+
+                $('.aulas-turma').html(list);
+
+
+            }
+        });
+
+    }
+
+    getTurma(token, idTurma);
+    getAula(token, idTurma);   
+
+}
+
+function renderConteudo(role, id, token) {
+    if (role == "PROFESSOR") {
+        renderConteudoProfessor(role, id, token);
+        return
+    }
+
+    renderConteudoAluno(role, id, token);
+    
+    return
 }
 
 
-getTurma(token, idTurma);
-getAula(token, idTurma);
+let parsedToken = parseJwt(token);
+let role = parsedToken.role;
+let id = parsedToken.usrid;
+
+renderConteudo(role, id, token);

@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/dashboard.css" />
-    
+
 </head>
 
 <body>
@@ -37,7 +37,11 @@
                                     alt="arquivos" class="menu" /></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="turmas.html"><img src="./assets/turmas-text.svg" alt="arquivos"
+                            <a class="nav-link" href="turmas.html"><img src="./assets/turmas-text-red.svg" alt="turmas"
+                                    class="menu" /></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="aulas.html"><img src="./assets/aulas-text.svg" alt="aulas"
                                     class="menu" /></a>
                         </li>
                         <li class="nav-item">
@@ -56,73 +60,53 @@
                 </div>
             </nav>
 
-            <main role="main" class="col-md-10  col-lg-10 px-md-4 mt-4">
-
+            <div class="col-md-10  col-lg-10 px-md-4 mt-3 main">
                 <div class="row">
-                    <div class="col-12">
-                        <div class="container-conteudo">
-                            <div class="row">
-                                <div class="col-6 ">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5>Dados da Turma:</h5>
-                                            <div class="dados-turma">
-
-                                            </div>
-                                            <h5 class="mt-4">Aulas:</h5>
-                                            <div class="aulas-turma">
-
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-6">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <h5>Alunos:</h5>
-                                            <div class="list-alunos">
-
-                                            </div>
-                                            <form method="PUT" id="addAlunosForm">
-                                                <br>
-                                                <p>Digite o email do aluno e escolha para Adicionar ou Remover:</p>
-                                                <input type="email" placeholder="Digite o email do aluno" id="email">
-                                                <br>
-                                                <br>
-                                                <button type="submit" class="btn btn-outline-danger" id="cadastrar"> Adicionar
-                                                </button>
-                                                <button type="submit" class="btn btn-outline-danger" id="remover"> Remover
-                                                </button>
-                                            </form>
-
-                                        </div>
-                                    </div>
-
+                    <div class="col-md-6 ">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5>Dados da Turma:</h5>
+                                <div class="dados-turma">
 
                                 </div>
+                                <h5 class="mt-4">Aulas:</h5>
+                                <div class="aulas-turma">
 
-
-
+                                </div>
                             </div>
-
                         </div>
                     </div>
+                    <div class="col-md-6">
+                        <div class="card alunos">
+                            <div class="card-body">
+                                <h5>Alunos:</h5>
+                                <div class="list-alunos">
 
-
-
-                </div>
-                <br>
-                <button type="submit" class="btn btn-outline-danger" id="deletarTurma"> Excluir turma </button>
-                <br>
-                <br>
-        </div>
-
-        
-
-        </main>
+                                </div>
+                                <form method="PUT" id="addAlunosForm" class="mt-2">
+                                    <div class="input">
+                                        <p>Digite o email do aluno e escolha para Adicionar ou Remover:</p>
+                                    <input type="email" placeholder="Digite o email do aluno" id="email">                                    
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="btn btn-outline-danger mt-2"  id="cadastrar">
+                                            Adicionar
+                                        </button>
+                                        <button type="submit" class="btn btn-outline-danger mt-2" id="remover">
+                                            Remover
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>            
+                <div class="botao">
+                    <button type="submit" class="btn btn-outline-danger mt-4" id="deletarTurma"> Excluir turma </button>
+                </div></div>            
+        </div>        
     </div>
-    </div>
+
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>

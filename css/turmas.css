@@ -17,8 +17,7 @@
     color: red;
 }
 
-
-main div {
+.main div {
     justify-content: left;
     align-items: center;
 }
@@ -35,4 +34,3 @@ div .col-12{
     margin: 500px;
     padding: 50px;
 }
-

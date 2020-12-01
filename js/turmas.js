@@ -35,13 +35,16 @@ function renderConteudoProfessor(role, id, token) {
 
             let linha = row(template, 'mt-2');
 
-            $('.container-conteudo').html(linha);
+            $('.list-turmas').html(linha);
 
         }
     });
 }
 
 function renderConteudoAluno(role, id, token) {
+
+    $('.botao').css('display','none');
+
     $.ajax({
         type: "GET",
         contentType: "application/json",
@@ -50,9 +53,20 @@ function renderConteudoAluno(role, id, token) {
             "Authorization": token
         },
         success: function (resposta) {
-            console.log(resposta)
+            
+            let template = "";
+
+            resposta.forEach(turma => {
+                template += cardTurma(turma);
+            });
+
+            let linha = row(template, 'mt-2');
+
+            $('.container-conteudo').html(linha);            
+
         }
     });
+    
 }
 
 function renderConteudo(role, id, token) {

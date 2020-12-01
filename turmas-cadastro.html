@@ -4,11 +4,11 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Dashboard - Cardeneta</title>
+    <title>Cadastro de Turma - Caderneta</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
         integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous" />
     <link rel="stylesheet" href="./css/dashboard.css" />
-    <link rel="stylesheet" href="./css/turmas.css" />    
+    <link rel="stylesheet" href="./css/turmas.css" />
 </head>
 
 <body>
@@ -19,7 +19,6 @@
             data-target="#sidebarMenu" aria-controls="sidebarMenu" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-
         <ul class="navbar-nav px-3">
             <li class="nav-item text-nowrap">
                 <a class="btn btn-outline-danger" href="index.html" role="button">Sair</a>
@@ -56,7 +55,7 @@
                 </div>
             </nav>
 
-            <main role="main" class="col-md-10 col-lg-10 px-md-4">
+            <div class="col-md-10 col-lg-10 px-md-4 mt-3 main">
                 <div class="row">
                     <div class="col-md-6 col-lg-6">
                         <form id="formCadastroTurma" method="POST">
@@ -64,7 +63,8 @@
                             <div class="form-group">
                                 <label for="nomeTurma">Nome da Turma: </label>
                                 <br>
-                                <input type="text" class="formTurma" id="nomeTurma" placeholder="Nome da Turma" name="nome" />
+                                <input type="text" class="formTurma" id="nomeTurma" placeholder="Nome da Turma"
+                                    name="nome" />
                             </div>
                             <div class="formCadastroTurma">
                                 <label for="diasAulas">Dias das aulas: </label>
@@ -130,7 +130,8 @@
                                 <label for="horaEncerramento">Horário de término da aula:</label>
                                 <br>
 
-                                <input type="time" id="horaEncerramento" class="formTurma" name="horaEncerramento" required />
+                                <input type="time" id="horaEncerramento" class="formTurma" name="horaEncerramento"
+                                    required />
                             </div>
                             <div class="formCadastroTurma">
                                 <label for="local">Local das aulas: </label>
@@ -142,7 +143,8 @@
                             <div class="formCadastroTurma">
                                 <label for="inicioAulas">Data de início: </label>
                                 <br />
-                                <input type="date" class="formTurma" id="inicioAulas" name="inicioAulas" placeholder="Início das aulas" />
+                                <input type="date" class="formTurma" id="inicioAulas" name="inicioAulas"
+                                    placeholder="Início das aulas" />
                             </div>
 
                             <div class="formCadastroTurma">
@@ -155,22 +157,18 @@
                                 Cadastrar
                             </button>
                         </form>
-
                     </div>
-
-
                 </div>
+            </div>
         </div>
-        </main>
-    </div>
     </div>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="./js/util.js"></script>
-    <script src="./js/validaCadastraTurmas.js"></script>    
+    <script src="./js/validaCadastraTurmas.js"></script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    
+
 </body>
 
 </html>

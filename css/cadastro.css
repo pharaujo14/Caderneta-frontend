@@ -18,16 +18,12 @@ input{
 .forms-container {
     display: flex;
     flex-direction: column;
-    align-items: center;
-
-    
-    margin: 50px;
+    align-items: center;   
     text-align: center;
-     
  }
  
  button {
-     margin: 20px;
+     margin: 5px;
  }
 
  .span-olho {

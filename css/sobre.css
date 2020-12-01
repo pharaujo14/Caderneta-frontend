@@ -15,6 +15,10 @@ body {
     padding: 5%;
   }
 
+  .logo-container img {
+    width: 70%;
+}
+
   .logo-container p {
     text-align: justify;
     margin-top: 20px;
@@ -51,6 +55,7 @@ section {
     align-items: center;
     text-align: center;
     padding: 0% 10% 0% 10%;
+    margin: 10px;
 }
 
 

@@ -1,6 +1,5 @@
 nav a{
-    display: block;
-    
+    display: block;    
 }
 
 .logo {
@@ -8,7 +7,7 @@ nav a{
 }
 
 .menu {
-    width: 100%;
+    width: 90%;
     max-width: 150px;
     
 }
@@ -22,11 +21,11 @@ nav a{
     border-right: red solid;
 }
 
-main {
-    height: 100vh;
+.main {
+    height: 95vh;
 }
 
 .aulas-turma{
-    max-height: 500px;
+    max-height: 400px;
     overflow: auto;
 }
