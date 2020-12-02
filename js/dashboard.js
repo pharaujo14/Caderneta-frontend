@@ -35,7 +35,7 @@ function renderConteudoProfessor(role, id, token) {
     $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "http://localhost:8080/aulas/professores",
+        url: "http://localhost:8080/aulas/professores/dashboard",
         headers: {
             "Authorization": token
         },
@@ -81,7 +81,7 @@ function renderConteudoAluno(role, id, token) {
     $.ajax({
         type: "GET",
         contentType: "application/json",
-        url: "http://localhost:8080/aulas/alunos",
+        url: "http://localhost:8080/aulas/alunos/dashboard",
         headers: {
             "Authorization": token
         },
