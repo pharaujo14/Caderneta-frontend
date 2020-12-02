@@ -28,3 +28,9 @@ function getDataFromURL(key){
     return param
 }
 
+$('.logout').on('click', function(){
+    localStorage.clear();
+    location.href = 'index.html'
+})
+
+

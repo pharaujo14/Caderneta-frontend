@@ -1,5 +1,5 @@
-nav a{
-    display: block;    
+nav a {
+    display: block;
 }
 
 .logo {
@@ -9,23 +9,23 @@ nav a{
 .menu {
     width: 90%;
     max-width: 150px;
-    
+
 }
 
-#sidebarMenu{
+#sidebarMenu {
     width: 100%;
     max-width: 150px;
 }
 
-.menu:hover{
+.menu:hover {
     border-right: red solid;
 }
 
 .main {
-    height: 95vh;
+    height: 94vh;
 }
 
-.aulas-turma{
+.aulas-turma {
     max-height: 400px;
     overflow: auto;
 }

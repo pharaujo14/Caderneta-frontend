@@ -1,7 +1,6 @@
 function cardTurma(turma) {
-
-    let template = 
-    `<div class="col-md-3 mb-3">
+    let template =
+        `<div class="col-md-3 mb-3">
     <div class="card">
     <div class="card-body">
       <h5 class="card-title">${turma.nome}</h5>
@@ -12,13 +11,11 @@ function cardTurma(turma) {
   </div>
   </div>`
 
-return template
+    return template
 }
 
-
-
 function renderConteudoProfessor(role, id, token) {
-    $.ajax({
+       $.ajax({
         type: "GET",
         contentType: "application/json",
         url: "http://localhost:8080/professores/" + id + "/turmas",
@@ -26,7 +23,7 @@ function renderConteudoProfessor(role, id, token) {
             "Authorization": token
         },
         success: function (resposta) {
-            
+
             let template = "";
 
             resposta.forEach(turma => {
@@ -42,10 +39,9 @@ function renderConteudoProfessor(role, id, token) {
 }
 
 function renderConteudoAluno(role, id, token) {
-
     $('.botao').css('display','none');
 
-    $.ajax({
+     $.ajax({
         type: "GET",
         contentType: "application/json",
         url: "http://localhost:8080/turmas/alunos",
@@ -53,7 +49,7 @@ function renderConteudoAluno(role, id, token) {
             "Authorization": token
         },
         success: function (resposta) {
-            
+
             let template = "";
 
             resposta.forEach(turma => {
@@ -62,11 +58,11 @@ function renderConteudoAluno(role, id, token) {
 
             let linha = row(template, 'mt-2');
 
-            $('.container-conteudo').html(linha);            
+            $('.list-turmas').html(linha);
 
         }
     });
-    
+
 }
 
 function renderConteudo(role, id, token) {
