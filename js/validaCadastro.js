@@ -1,23 +1,31 @@
 $(document).ready(function () {
   showPassword();
-  $('#validaSenha').css("display", "none") 
+  $('#validaSenha').css("display", "none")
   $("#cpf").mask("999.999.999-99");
   $("#formCadastro").submit(function (event) {
     event.preventDefault();
-    validarSenha(); 
+    validarSenha();
+    setTimeout(redirecionar(), 10000);
   });
 });
 
-function validarSenha(){
+function redirecionar(){
+  swal("Concluído", "Cadastro criado com sucesso!", "success")
+  .then((value) => {
+    window.location.href = 'login.html'; 
+  });            
+}
+
+function validarSenha() {
   senha = $("#senha").val();
   confirmaSenha = $("#confirmasenha").val();
-  if (senha != confirmaSenha){ 
-    $('#validaSenha').css("display", "grid") 
+  if (senha != confirmaSenha) {
+    $('#validaSenha').css("display", "grid")
     senha == null;
     confirmaSenha == null;
     return false;
   }
-  $('#validaSenha').css("display", "none") 
+  $('#validaSenha').css("display", "none")
   enviar();
   return true;
 }
@@ -28,16 +36,16 @@ function enviar() {
 
   var role = $("#role").val()
 
-  var insert = {};  
+  var insert = {};
   insert["nome"] = $("#nome").val();
   insert["sobrenome"] = $("#sobrenome").val();
   insert["email"] = $("#email").val();
-  insert["cpf"] = $("#cpf").val().replace(/[^\d]+/g,'');
+  insert["cpf"] = $("#cpf").val().replace(/[^\d]+/g, '');
   insert["senha"] = $("#senha").val();
 
   $("#enviar").prop("disabled", true);
 
-  if(role == 1){
+  if (role == 1) {
     $.ajax({
       type: "POST",
       contentType: "application/json",
@@ -45,12 +53,8 @@ function enviar() {
       data: JSON.stringify(insert),
       dataType: "json",
       cache: false,
-      timeout: 600000,
-      success: function(){
-        alert("Cadastro realizado com sucesso")},
-      error: function() {
-      alert("Email já cadastrado!")
-      }});
+      timeout: 600000
+    });
 
   } else {
     $.ajax({
@@ -60,38 +64,34 @@ function enviar() {
       data: JSON.stringify(insert),
       dataType: "json",
       cache: false,
-      timeout: 600000,
-      success: function(){
-        alert("Cadastro realizado com sucesso")},
-      error: function() {
-      alert("Email já cadastrado!")
-      }});
+      timeout: 600000
+    });
   }
 
-  
+
 }
 
 
-function showPassword(){
+function showPassword() {
   var senha = $('#senha');
   var confirmaSenha = $('#confirmasenha');
-  var senhaOlho= $("#senhaOlho");
-  var confirmaSenhaOlho= $("#confirmaSenhaOlho");
-  
-    senhaOlho.mousedown(function() {
-      return senha.attr("type", "text");
-    });
-    
-    senhaOlho.mouseup(function() {
-      return senha.attr("type", "password");
-    });
-  
-    confirmaSenhaOlho.mousedown(function() {
-      return confirmaSenha.attr("type", "text");
-    });
-    
-    confirmaSenhaOlho.mouseup(function() {
-      return confirmaSenha.attr("type", "password");
-    });
+  var senhaOlho = $("#senhaOlho");
+  var confirmaSenhaOlho = $("#confirmaSenhaOlho");
+
+  senhaOlho.mousedown(function () {
+    return senha.attr("type", "text");
+  });
+
+  senhaOlho.mouseup(function () {
+    return senha.attr("type", "password");
+  });
+
+  confirmaSenhaOlho.mousedown(function () {
+    return confirmaSenha.attr("type", "text");
+  });
+
+  confirmaSenhaOlho.mouseup(function () {
+    return confirmaSenha.attr("type", "password");
+  });
 }
 
