@@ -3,7 +3,7 @@ $(document).ready(function () {
   $("#formCadastroTurma").submit(function (event) {
     event.preventDefault();
     enviar();
-    setTimeout(redirecionar(), 10000);
+    setTimeout(redirecionar(), 20000);
   });
 });
 

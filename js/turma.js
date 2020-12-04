@@ -95,7 +95,7 @@ function deleteAluno(emailA, idTurma) {
 $('#remover').on('click', function (event) {
     event.preventDefault();
     let emailA = $('#email').val();
-    addAluno(emailA, idTurma);
+    deleteAluno(emailA, idTurma);
 })
 
 function recarregar() {
@@ -242,6 +242,54 @@ function renderConteudoAluno(role, id, token) {
     getAula(token, idTurma);   
 
 }
+
+function deleteTurma(idTurma) {
+
+    const json = {
+        id: idTurma
+    };
+
+    $.ajax({
+        type: "DELETE",
+        contentType: "application/json",
+        url: "http://localhost:8080/turmas",
+        data: JSON.stringify(json),
+        dataType: "json",
+        success: function (retorno) {
+            swal("Concluído", "Turma removida com sucesso!", "success")
+                .then((value) => {
+                    window.location.href = 'dashboard.html'; 
+                });            
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            swal("Erro", "Algo deu errado...!", "error");
+        }
+    });
+
+}
+
+$('#deletarTurma').on('click', function (event) {
+
+    event.preventDefault();
+
+    swal({
+        title: "Alerta",
+        text: "Caso delete a turma, todos os dados serão apagados",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if (willDelete) {
+            deleteTurma(idTurma);
+        } else {
+          swal("Ok, sua turma continua aqui...");
+        }
+      });
+
+
+
+})
 
 function renderConteudo(role, id, token) {
     if (role == "PROFESSOR") {
